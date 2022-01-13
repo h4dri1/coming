@@ -14,7 +14,8 @@ app.get('/hello', (req, res) => {
     res.send('Hello World!')
 });
 
-app.get('/', (req, res) => {
+app.get('/', (req, res, next) => {
+    
     res.render('index');
 });
 
