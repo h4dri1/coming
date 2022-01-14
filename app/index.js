@@ -15,12 +15,11 @@ app.get('/hello', (req, res) => {
 });
 
 app.get('/', (req, res, next) => {
-    
     res.render('index');
 });
 
 app.use((_, res) => {
-    res.status(404).json('404 Not found');
+    res.render('index');
 });
 
 app.listen(port, () => {
