@@ -1,9 +1,18 @@
 include partials/header.pug
 body(class='background-image')
+    div(class='box has-background-primary is-radiusless')
+        div(id='price1')
+            p=`BTC = ${price.bitcoin.usd} USD /`
+        div(id='price2')
+            p=`ETH = ${price.ethereum.usd} USD`
+        div(id='market1')
+            p=`Total MarketCap = ${new Intl.NumberFormat('fr-FR').format(Math.round(market.data.total_market_cap.usd))} USD`
+        div(id='market2')
+            p=`Volume = ${new Intl.NumberFormat('fr-FR').format(Math.round(market.data.total_volume.usd))} USD`
+        div(id='countdown-timer')
     div(class='conteneur')
         img(src='/images/logo3.png' alt='logo' style='width:200px; height:200px;')
-        div(id='countdown-timer')
         script
-            include ../countdown.js
+            include ../../scripts/countdown.js
 
     

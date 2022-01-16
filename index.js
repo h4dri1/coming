@@ -2,24 +2,20 @@ const express = require('express');
 
 const app = express();
 
+const router = require('./app/router');
+
 const port = 8765;
 
 app.set('view engine', 'pug');
 
-app.set('views', './views');
+app.set('views', './app/views');
 
-app.use(express.static('../public'));
+app.use(express.static('./public'));
 
-app.get('/hello', (req, res) => {
-    res.send('Hello World!')
-});
-
-app.get('/', (req, res, next) => {
-    res.render('index');
-});
+app.use(router);
 
 app.use((_, res) => {
-    res.render('index');
+    res.status(404).render('404');
 });
 
 app.listen(port, () => {
